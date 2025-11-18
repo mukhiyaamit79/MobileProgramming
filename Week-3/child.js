@@ -1,74 +1,45 @@
-// ==========================
-// PRODUCT DETAIL POPUP
-// ==========================
+$(document).ready(function() {
 
-// Buttons that open the popup
-const viewButtons = document.querySelectorAll(".view-btn");
+    // Open product detail popup
+    $(".view-btn").click(function() {
+        const card = $(this).closest(".product-card");
 
-// Popup elements
-const popup = document.getElementById("product-detail");
-const closeBtn = document.querySelector(".close-btn");
+        $("#detail-name").text(card.data("name"));
+        $("#detail-desc").text(card.data("desc"));
+        $("#detail-price").text("$" + card.data("price"));
 
-const detailName = document.getElementById("detail-name");
-const detailDesc = document.getElementById("detail-desc");
-const detailPrice = document.getElementById("detail-price");
-
-// Open product detail
-viewButtons.forEach(btn => {
-    btn.addEventListener("click", function () {
-        const card = this.parentElement;
-
-        detailName.textContent = card.dataset.name;
-        detailDesc.textContent = card.dataset.desc;
-        detailPrice.textContent = "$" + card.dataset.price;
-
-        popup.style.display = "flex";
+        $("#product-detail").css("display", "flex");
     });
-});
 
-// Close popup when clicking X
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
+    // Close popup when clicking X
+    $(".close-btn").click(function() {
+        $("#product-detail").hide();
+    });
 
-// Close popup by clicking outside content
-window.addEventListener("click", function(e){
-    if(e.target === popup){
-        popup.style.display = "none";
+    // Close popup by clicking outside content
+    $(window).click(function(e) {
+        if ($(e.target).is("#product-detail")) {
+            $("#product-detail").hide();
+        }
+    });
+
+    // Show toast function
+    function showToast(message) {
+        const $toast = $("#toast");
+        $toast.text(message).addClass("show");
+
+        setTimeout(function() {
+            $toast.removeClass("show");
+        }, 2500);
     }
-});
 
+    // Add to cart button
+    $(".cart-btn").click(function() {
+        const card = $(this).closest(".product-card");
+        const name = card.data("name");
+        const price = card.data("price");
 
-// ==========================
-// TOAST NOTIFICATION
-// ==========================
-
-// Show toast message
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.className = "show";
-
-    setTimeout(() => {
-        toast.className = toast.className.replace("show", "");
-    }, 2500);
-}
-
-
-// ==========================
-// ADD TO CART BUTTON
-// ==========================
-
-const cartButtons = document.querySelectorAll(".cart-btn");
-
-cartButtons.forEach(btn => {
-    btn.addEventListener("click", function(){
-        const card = this.parentElement;
-
-        const name = card.dataset.name;
-        const price = card.dataset.price;
-
-        // Show toast
         showToast(name + " added to cart • $" + price);
     });
+
 });
