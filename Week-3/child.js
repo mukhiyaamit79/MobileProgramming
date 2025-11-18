@@ -1,24 +1,74 @@
-$(document).ready(function() {
+// ==========================
+// PRODUCT DETAIL POPUP
+// ==========================
 
-    // Open product detail
-    $(".view-btn").click(function() {
-        let card = $(this).closest(".product-card");
+// Buttons that open the popup
+const viewButtons = document.querySelectorAll(".view-btn");
 
-        $("#detail-name").text(card.data("name"));
-        $("#detail-desc").text(card.data("desc"));
-        $("#detail-price").text("$" + card.data("price"));
+// Popup elements
+const popup = document.getElementById("product-detail");
+const closeBtn = document.querySelector(".close-btn");
 
-        $("#product-detail").fadeIn();
+const detailName = document.getElementById("detail-name");
+const detailDesc = document.getElementById("detail-desc");
+const detailPrice = document.getElementById("detail-price");
+
+// Open product detail
+viewButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+        const card = this.parentElement;
+
+        detailName.textContent = card.dataset.name;
+        detailDesc.textContent = card.dataset.desc;
+        detailPrice.textContent = "$" + card.dataset.price;
+
+        popup.style.display = "flex";
     });
+});
 
-    // Close popup
-    $(".close-btn").click(function() {
-        $("#product-detail").fadeOut();
+// Close popup when clicking X
+closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+// Close popup by clicking outside content
+window.addEventListener("click", function(e){
+    if(e.target === popup){
+        popup.style.display = "none";
+    }
+});
+
+
+// ==========================
+// TOAST NOTIFICATION
+// ==========================
+
+// Show toast message
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "show";
+
+    setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+    }, 2500);
+}
+
+
+// ==========================
+// ADD TO CART BUTTON
+// ==========================
+
+const cartButtons = document.querySelectorAll(".cart-btn");
+
+cartButtons.forEach(btn => {
+    btn.addEventListener("click", function(){
+        const card = this.parentElement;
+
+        const name = card.dataset.name;
+        const price = card.dataset.price;
+
+        // Show toast
+        showToast(name + " added to cart • $" + price);
     });
-
-    // Add to cart
-    $(".add-cart-btn").click(function() {
-        alert("Product added to cart!");
-    });
-
 });

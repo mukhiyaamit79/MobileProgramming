@@ -1,66 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Child Care Products</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Link CSS -->
     <link rel="stylesheet" href="child.css">
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Link JS -->
-    <script src="child.js" defer></script>
 </head>
-
 <body>
 
-    <div class="header">Child Care Products</div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Child Care</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-    <!-- Product List -->
-    <div class="product-card" data-name="Baby Lotion" data-price="12.99"
-         data-desc="Gentle moisturizing lotion for infants. Safe for all skin types.">
-         <div class="product-image-div">
-             <img class="lotion-img" src="images/Lotion.jpg">
-         </div>
-        <div class="product-name">Baby Lotion</div>
-        <div class="price">$12.99</div>
-        <div class="btn view-btn">View Details</div>
-    </div>
+    <header>
+        <h1>Child Care Product</h1>
+        <p>Your trusted place for baby products</p>
+    </header>
 
-    <div class="product-card" data-name="Baby Diapers" data-price="15.50"
-         data-desc="Soft, ultra-absorbent diapers for newborns to toddlers.">
-         <div class="product-image-div">
-             <img src="images/Diaper.jpeg">
-         </div>
-        <div class="product-name">Baby Diapers</div>
-        <div class="price">$15.50</div>
-        <div class="btn view-btn">View Details</div>
-    </div>
+    <section class="products-container">
 
-    <div class="product-card" data-name="Baby Shampoo" data-price="8.99"
-         data-desc="Tear-free shampoo made with natural ingredients.">
-         <div class="product-image-div">
-             <img src="images/Shampoo.jpg">
-         </div>
-        <div class="product-name">Baby Shampoo</div>
-        <div class="price">$8.99</div>
-        <div class="btn view-btn">View Details</div>
-    </div>
+        <div class="product-card" data-name="Baby Lotion" data-price="12.99" data-desc="Gentle and safe baby lotion for soft skin.">
+            <img src="./images/Lotion.jpg" alt="Lotion">
+            <h2>Baby Lotion</h2>
+            <p>$12.99</p>
+            <button class="view-btn">View Details</button>
+<button class="cart-btn">Add to Cart</button>
 
-    <!-- Popup Product Detail -->
-    <div id="product-detail">
-        <div class="detail-box">
+            
+        </div>
+
+        <div class="product-card" data-name="Baby Shampoo" data-price="10.50" data-desc="Tear-free shampoo for daily care">
+           <img src="./images/Shampoo.jpg" alt="shampoo">
+            <h2>Baby Shampoo</h2>
+            <p>$10.50</p>
+            <button class="view-btn">View Details</button>
+<button class="cart-btn">Add to Cart</button>
+
+        </div>
+
+        <div class="product-card" data-name="Baby Diapers" data-price="18.00" data-desc="Soft, comfortable, and leak-proof diapers">
+           <img src="./images/Diaper.jpeg" alt="diaper">
+            <h2>Baby Diapers</h2>
+            <p>$18.00</p>
+            <button class="view-btn">View Details</button>
+<button class="cart-btn">Add to Cart</button>
+
+        </div>
+
+    </section>
+
+    <!-- Product Detail Popup -->
+    <div id="product-detail" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
             <h2 id="detail-name"></h2>
             <p id="detail-desc"></p>
-            <h3 id="detail-price"></h3>
-
-            <div class="btn add-cart-btn">Add to Cart</div>
-            <div class="close-btn">Close</div>
+            <p id="detail-price"></p>
         </div>
     </div>
+<div id="toast"></div>
+<footer>
+    <div class="footer-container">
 
+        <div class="footer-section">
+            <h3>About BabyCare</h3>
+            <p>We provide safe and reliable baby products for your little ones. Quality and care is our top priority.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: support@babycare.com</p>
+            <p>Phone: +977 123 456 789</p>
+            <p>Address: Kathmandu, Nepal</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 BabyCare. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script src="child.js"></script>
 </body>
 </html>
