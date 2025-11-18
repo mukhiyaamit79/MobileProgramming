@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Child Care Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="child.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Link JS -->
+    <script src="child.js" defer></script>
+</head>
+
+<body>
+
+    <div class="header">Child Care Products</div>
+
+    <!-- Product List -->
+    <div class="product-card" data-name="Baby Lotion" data-price="12.99"
+         data-desc="Gentle moisturizing lotion for infants. Safe for all skin types.">
+         <div class="product-image-div">
+             <img class="lotion-img" src="images/Lotion.jpg">
+         </div>
+        <div class="product-name">Baby Lotion</div>
+        <div class="price">$12.99</div>
+        <div class="btn view-btn">View Details</div>
+    </div>
+
+    <div class="product-card" data-name="Baby Diapers" data-price="15.50"
+         data-desc="Soft, ultra-absorbent diapers for newborns to toddlers.">
+         <div class="product-image-div">
+             <img src="images/Diaper.jpeg">
+         </div>
+        <div class="product-name">Baby Diapers</div>
+        <div class="price">$15.50</div>
+        <div class="btn view-btn">View Details</div>
+    </div>
+
+    <div class="product-card" data-name="Baby Shampoo" data-price="8.99"
+         data-desc="Tear-free shampoo made with natural ingredients.">
+         <div class="product-image-div">
+             <img src="images/Shampoo.jpg">
+         </div>
+        <div class="product-name">Baby Shampoo</div>
+        <div class="price">$8.99</div>
+        <div class="btn view-btn">View Details</div>
+    </div>
+
+    <!-- Popup Product Detail -->
+    <div id="product-detail">
+        <div class="detail-box">
+            <h2 id="detail-name"></h2>
+            <p id="detail-desc"></p>
+            <h3 id="detail-price"></h3>
+
+            <div class="btn add-cart-btn">Add to Cart</div>
+            <div class="close-btn">Close</div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -34,14 +34,14 @@ function Calculate(btn) {
     let x = 10;
     let y = 15;
     let z = x + y;
-    document.getElementById("Uttam").innerHTML = "The sum is: " + z;
+    document.getElementById("Susman").innerHTML = "The sum is: " + z;
 }
 
 function Calculate1(btn) {
     let a = 20;
     let b = 15;
     let c = a - b;
-    document.getElementById("Susman").innerHTML = "The Difference is:" + c ;
+    document.getElementById("Shreejal").innerHTML = "The Difference is:" + c ;
 }
 
 function Calculate2(btn) {
@@ -55,8 +55,10 @@ function Calculate3(btn) {
     let x = 15;
     let y = 5;
     let z = x / y;
-    document.getElementById("Amit").innerHTML = "The Division is: " + z;
+    document.getElementById("Bibek").innerHTML = "The Division is: " + z;
 }
+
+
 
 function checkAge() {
     let age = 18;
@@ -70,5 +72,5 @@ function checkAge() {
         message = "You are an adult.";
     }
 
-    document.getElementById("Bibek").innerHTML = message;
+    document.getElementById("Alric").innerHTML = message;
 }
